@@ -28,5 +28,12 @@ app.get('/', session, function(req, res){
 	res.render('index.ejs', req.sessionInfo);
 });
 
+app.post('/login', function(req, res){
+	console.log(req.body);
+	sessionInfo.name = req.body.username;
+	res.redirect('/');
+
+});
+
 app.listen(port);
 console.log("Its alive! On " + port);
